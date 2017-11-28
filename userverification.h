@@ -12,6 +12,7 @@ class UserVerification : public QDialog
 {
     Q_OBJECT
 
+
 public:
     explicit UserVerification(QWidget *parent = 0);
     ~UserVerification();
