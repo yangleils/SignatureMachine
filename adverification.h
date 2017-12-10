@@ -15,6 +15,7 @@ class AdVerification : public QDialog
 public:
     explicit AdVerification(QWidget *parent = 0);
     ~AdVerification();
+    static bool isCkecked;
 
 private slots:
     void on_enterBtn_clicked();
@@ -22,7 +23,7 @@ private slots:
 
 private:
     Ui::AdVerification *ui;
-    AdministerMainWindow *administerInterface;
+    // AdministerMainWindow *administerInterface;
 };
 
 #endif // ADVERIFICATION_H

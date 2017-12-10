@@ -6,6 +6,7 @@
 
 QT       += core gui
 QT       += sql
+QT       += serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -19,7 +20,9 @@ SOURCES += main.cpp\
     adverification.cpp \
     usermainwindow.cpp \
     administermainwindow.cpp \
-    userverification.cpp
+    userverification.cpp \
+    ssql.cpp \
+    communication.cpp
 
 HEADERS  += mainwindow.h \
     users.h \
@@ -28,11 +31,21 @@ HEADERS  += mainwindow.h \
     administermainwindow.h \
     userverification.h \
     userdatabase.h \
-    administerdatabase.h
+    administerdatabase.h \
+    ssql.h \
+    communication.h
 
 FORMS    += mainwindow.ui \
     users.ui \
     adverification.ui \
     usermainwindow.ui \
     administermainwindow.ui \
-    userverification.ui
+    userverification.ui \
+    communication.ui
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../Study_Software/opencv320/lib/ -lopencv_world320
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../../Study_Software/opencv320/lib/ -lopencv_world320d
+else:unix: LIBS += -L$$PWD/../../../../Study_Software/opencv320/lib/ -lopencv_world320
+
+INCLUDEPATH += $$PWD/../../../../Study_Software/opencv320/include
+DEPENDPATH += $$PWD/../../../../Study_Software/opencv320/include

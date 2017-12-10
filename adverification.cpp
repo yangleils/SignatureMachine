@@ -1,7 +1,9 @@
 #include "adverification.h"
 #include "ui_adverification.h"
 #include "administerdatabase.h"
+#include "communication.h"
 
+bool AdVerification::isCkecked = false;
 
 AdVerification::AdVerification(QWidget *parent) :
     QDialog(parent),
@@ -9,7 +11,8 @@ AdVerification::AdVerification(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle(tr("身份验证"));
-    administerInterface = new AdministerMainWindow();
+    // administerInterface = new AdministerMainWindow();
+    isCkecked = true;
 }
 
 AdVerification::~AdVerification()
@@ -34,7 +37,8 @@ void AdVerification::on_enterBtn_clicked()
            if((query.value(1).toString() == ui->passwordLineEdit->text()))
            {
               accept();
-              administerInterface->show();
+              // administerInterface->show();
+              Communication::getInstance()->show();
               this->hide();
            }
            else

@@ -1,14 +1,17 @@
 #include "userverification.h"
 #include "ui_userverification.h"
 #include "userdatabase.h"
+#include "communication.h"
 
+bool UserVerification::isChecked = false;
 
 UserVerification::UserVerification(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::UserVerification)
 {
     ui->setupUi(this);
-    userInterface = new UserMainWindow();
+    isChecked = true;
+    // userInterface = new UserMainWindow();
     this->setWindowTitle(tr("身份验证"));
 }
 
@@ -32,7 +35,8 @@ void UserVerification::on_enterBtn_clicked()
            if((query.value(1).toString() == ui->passwordLineEdit->text()))
            {
               accept();
-              userInterface->show();
+              // userInterface->show();
+              Communication::getInstance()->show();
               this->hide();
            }
            else
