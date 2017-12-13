@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     administermainwindow.cpp \
     userverification.cpp \
     ssql.cpp \
-    communication.cpp
+    communication.cpp \
+    processthread.cpp
 
 HEADERS  += mainwindow.h \
     users.h \
@@ -33,7 +34,8 @@ HEADERS  += mainwindow.h \
     userdatabase.h \
     administerdatabase.h \
     ssql.h \
-    communication.h
+    communication.h \
+    processthread.h
 
 FORMS    += mainwindow.ui \
     users.ui \

@@ -4,8 +4,6 @@
 #include <QMainWindow>
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
-#include "administermainwindow.h"
-#include "usermainwindow.h"
 
 namespace Ui {
 class Communication;
@@ -62,10 +60,6 @@ private:
 
     // 单例对象指针
     static Communication* singleton;
-
-    // 用户、管理员界面对象
-    AdministerMainWindow *administerInterface;
-    UserMainWindow *userInterface;
 };
 
 #endif // COMMUNICATION_H

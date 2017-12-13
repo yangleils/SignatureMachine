@@ -15,7 +15,6 @@ class UserVerification : public QDialog
 public:
     explicit UserVerification(QWidget *parent = 0);
     ~UserVerification();
-    static bool isChecked;
 
 private slots:
     void on_enterBtn_clicked();
@@ -23,7 +22,6 @@ private slots:
 
 private:
     Ui::UserVerification *ui;
-    // UserMainWindow *userInterface;
 };
 
 #endif // USERVERIFICATION_H

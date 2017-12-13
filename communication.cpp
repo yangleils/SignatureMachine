@@ -3,6 +3,7 @@
 #include <QMessageBox>
 #include "adverification.h"
 #include "userverification.h"
+#include "users.h"
 
 Communication* Communication::singleton = 0;
 
@@ -75,19 +76,16 @@ void Communication::on_connectPushButton_clicked()
         // 按键状态转换
         ui->connectPushButton->setEnabled(false);
         ui->resetPushButton->setEnabled(true);
-        if(AdVerification::isCkecked)
+
+        if(Users::identityFlag)
         {
-            administerInterface = new AdministerMainWindow();
-            administerInterface->show();
+            Users::userInterface->show();
             this->hide();
-            return;
         }
-        else if(UserVerification::isChecked)
+        else
         {
-            userInterface = new UserMainWindow();
-            userInterface->show();
+            Users::administerInterface->show();
             this->hide();
-            return;
         }
     }
     else
@@ -108,9 +106,7 @@ void Communication::on_connectPushButton_clicked()
             systemSerialPort = NULL;
         }
         QMessageBox::warning(this, tr("提示信息"), tr("系统通信建立失败"), QMessageBox::Ok);
-
     }
-
 }
 
 void Communication::on_resetPushButton_clicked()
